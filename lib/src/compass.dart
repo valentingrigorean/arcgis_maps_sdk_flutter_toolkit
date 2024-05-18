@@ -9,14 +9,12 @@ import 'package:flutter_svg/svg.dart';
 class Compass extends StatefulWidget {
   const Compass({
     super.key,
-    this.width = 50,
-    this.height = 50,
+    this.size = 44,
     this.autoHide = true,
     required this.controller,
   });
 
-  final double width;
-  final double height;
+  final double size;
 
   final bool autoHide;
 
@@ -28,7 +26,7 @@ class Compass extends StatefulWidget {
 
 class _CompassState extends State<Compass> {
   StreamSubscription<void>? _rotationChangedSubscription;
-  late double _rotation;
+  double _rotation = 0;
 
   late bool _visible;
 
@@ -37,6 +35,7 @@ class _CompassState extends State<Compass> {
     super.initState();
     final controller = widget.controller;
     _setController(controller);
+    _visible = !_shouldHide(controller.rotation);
   }
 
   @override
@@ -50,6 +49,9 @@ class _CompassState extends State<Compass> {
     if (widget.controller != oldWidget.controller) {
       _setController(widget.controller);
     }
+    if (widget.autoHide != oldWidget.autoHide) {
+      _visible = !_shouldHide(widget.controller.rotation);
+    }
     super.didUpdateWidget(oldWidget);
   }
 
@@ -58,14 +60,14 @@ class _CompassState extends State<Compass> {
     Widget child = SvgPicture.asset(
       'assets/ic_compass.svg',
       package: 'arcgis_maps_sdk_flutter_toolkit',
-      width: widget.width,
-      height: widget.height,
+      width: widget.size,
+      height: widget.size,
       fit: BoxFit.contain,
     );
 
     child = SizedBox(
-      width: widget.width,
-      height: widget.height,
+      width: widget.size,
+      height: widget.size,
       child: Transform.rotate(
         angle: _rotation,
         child: child,
@@ -76,7 +78,17 @@ class _CompassState extends State<Compass> {
       onTap: () {
         widget.controller.setViewpointRotation(angleDegrees: 0);
       },
-      child: child,
+      child: Container(
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 228, 240, 244),
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: const Color.fromARGB(255, 127, 127, 127),
+            width: 2,
+          ),
+        ),
+        child: child,
+      ),
     );
 
     if (widget.autoHide) {
@@ -90,16 +102,12 @@ class _CompassState extends State<Compass> {
     return child;
   }
 
-  double _degreesToRadians(double degrees) {
-    return (math.pi * (360 - degrees) / 180);
-  }
-
   void _setController(ArcGISMapViewController controller) {
     _rotationChangedSubscription?.cancel();
 
     updateValues() {
       _rotation = _degreesToRadians(controller.rotation);
-      _visible = _rotation != 0;
+      _visible = !_shouldHide(controller.rotation);
     }
 
     updateValues();
@@ -107,5 +115,13 @@ class _CompassState extends State<Compass> {
       updateValues();
       setState(() {});
     });
+  }
+
+  bool _shouldHide(double heading) {
+    return (heading.isNaN || heading == 0) && widget.autoHide;
+  }
+
+  double _degreesToRadians(double degrees) {
+    return (math.pi * (360 - degrees) / 180);
   }
 }

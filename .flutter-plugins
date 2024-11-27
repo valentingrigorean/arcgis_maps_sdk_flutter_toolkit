@@ -1,7 +1,17 @@
 # This is a generated file; do not edit or check into version control.
-arcgis_maps=/Users/valentingrigorean/work/snla/arcgis_maps_package/
-location=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/location-6.0.2/
-location_web=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/location_web-5.0.1/
+arcgis_maps=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/arcgis_maps-200.6.0+4426/
+device_info_plus=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/device_info_plus-10.1.2/
+flutter_web_auth_2=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/flutter_web_auth_2-3.1.2/
+haptic_feedback=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/haptic_feedback-0.5.1+1/
+location=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/location-7.0.0/
+location_web=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/location_web-5.0.3/
+package_info_plus=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/package_info_plus-8.1.1/
+path_provider=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/path_provider-2.1.5/
+path_provider_android=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/path_provider_android-2.2.14/
+path_provider_foundation=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/path_provider_foundation-2.4.0/
+path_provider_linux=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/path_provider_linux-2.2.1/
+path_provider_windows=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/path_provider_windows-2.3.0/
+sqlite3_flutter_libs=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/sqlite3_flutter_libs-0.5.26/
 url_launcher=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/url_launcher-6.2.6/
 url_launcher_android=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.1/
 url_launcher_ios=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/url_launcher_ios-6.2.5/
@@ -9,3 +19,4 @@ url_launcher_linux=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/url_launch
 url_launcher_macos=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/url_launcher_macos-3.1.0/
 url_launcher_web=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/url_launcher_web-2.3.1/
 url_launcher_windows=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/url_launcher_windows-3.1.1/
+window_to_front=/Users/valentingrigorean/.pub-cache/hosted/pub.dev/window_to_front-0.0.3/
